@@ -1,0 +1,258 @@
+<template>
+    <nav v-show="!show">
+        <div class="sidebar">
+            <div class="sidebar-container">
+                <div class="sidebar-header">
+                    <div class="user-avatar">
+                        <img src="./images.jpg" alt="user_avatar">
+                    </div>
+                    <button class="points-header">
+                        <h4>{{ account.points }} Points</h4>
+                        <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+                <h3 class="account-name">Chou Tzuyu</h3>
+                <p class="contact-number">+63 912 345 6789</p>
+
+                <div class="links">
+                    <div>
+                        <Link href="/">Home</Link>
+                    </div>
+                    <div>
+                        <Link href="/">Notification</Link>
+                    </div>
+                    <div>
+                        <Link href="/">Store Locator</Link>
+                    </div>
+                    <div>
+                        <Link href="/faqs">FAQ's</Link>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <header>
+       <nav>
+            <button class="menu-button" @click="show" >
+                <svg class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                </svg>
+            </button>
+            <button class="points-header">
+                <h4>{{ account.points }} Points</h4>
+                <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+            <div class="user-avatar">
+                <img src="./images.jpg" alt="user_avatar">
+            </div>
+       </nav>
+    </header>
+
+    <main>
+        <div class="main-header">
+            <div class="food-logo">
+                <img src="../../img/burger.png" alt="">
+            </div>
+            <div class="greeting">
+                <p>Anneoyong, {{ account.firstName }}!</p>
+                <h3>What do you want to eat?</h3>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+            </svg>
+
+            <input type="text" placeholder="try our new Steak Fries Veggies" class="search-input">
+        </div>
+
+        <div class="special-offer-container">
+            <div class="special-title">
+                <h4>Special Offers!</h4>
+                <button>
+                    View All
+                    <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="special-offer-cards">
+                <div class="special-card">
+                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                </div>
+                <div class="special-card">
+                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                </div>
+                <div class="special-card">
+                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                </div>
+                <div class="special-card">
+                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                </div>
+            </div>
+
+            
+        </div>
+
+        <!-- category -->
+        <div class="category-container">
+            <div class="category-title">
+                <h4>Category</h4>
+            </div>
+
+            <div class="category-cards">
+                <div>
+                    <div class="category-card">
+                        <img src="../../img/category/category3.jpg" alt="">
+                        <div class="category-info">
+                            <h5>Chicken</h5>
+                            <p>9 recipes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="category-card">
+                        <img src="../../img/category/category3.jpg" alt="">
+                        <div class="category-info">
+                            <h5>Veggies</h5>
+                            <p>6 recipes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="category-card">
+                        <img src="../../img/category/category3.jpg" alt="">
+                        <div class="category-info">
+                            <h5>Overload</h5>
+                            <p>3 recipes</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- whats new -->
+        <div class="whats-new-container">
+            <h4>What's New?</h4>
+            <img src="../../img/special_offers/special_menu.png" alt="">
+        </div>
+
+        <!-- most popular -->
+        <div class="most-popular-container">
+            <h4>Most Popular</h4>
+            <div class="menu-cards">
+                <Link href="/menu" class="menu menu1">
+                    <img src="../../img/menu/1.png" alt="">
+                    <div>
+                        <h5>Steak Fries Veggies</h5>
+                        <p class="menu-type">Meat</p>
+                    </div>
+
+                    <div class="menu-footer">
+                        <p class="price">P 175</p>
+                        <div class="ratings">
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                        </div>
+                    </div>
+                </Link>
+                <div class="menu menu1">
+                    <img src="../../img/menu/1.png" alt="">
+                    <div>
+                        <h5>Steak Fries Veggies</h5>
+                        <p class="menu-type">Meat</p>
+                    </div>
+
+                    <div class="menu-footer">
+                        <p class="price">P 175</p>
+                        <div class="ratings">
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                        </div>
+                    </div>
+                </div>
+                <div class="menu menu1">
+                    <img src="../../img/menu/1.png" alt="">
+                    <div>
+                        <h5>Steak Fries Veggies</h5>
+                        <p class="menu-type">Meat</p>
+                    </div>
+
+                    <div class="menu-footer">
+                        <p class="price">P 175</p>
+                        <div class="ratings">
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                        </div>
+                    </div>
+                </div>
+                <div class="menu menu1">
+                    <img src="../../img/menu/1.png" alt="">
+                    <div>
+                        <h5>Steak Fries Veggies</h5>
+                        <p class="menu-type">Meat</p>
+                    </div>
+
+                    <div class="menu-footer">
+                        <p class="price">P 175</p>
+                        <div class="ratings">
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                            &#9733;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <Link class="order-now">
+            Order Now!
+        </Link>
+    </main>
+
+
+
+</template>
+
+<script>
+
+    import { Link } from '@inertiajs/vue3'
+    import account from '../../../account.json'
+
+    export default {
+        components: {
+            Link
+        },
+
+        data() {
+            return {
+                show: true,
+                account: account,
+            }
+        }
+    }
+</script>

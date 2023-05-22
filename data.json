@@ -1,0 +1,19 @@
+ [
+    {
+        "question": "How do I order?",
+        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, dolor."
+    },
+    {
+        "question": "When can I order?",
+        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, dolor."
+    },
+    {
+        "question": "Do you have minimum order value?",
+        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, dolor."
+    },
+    {
+        "question": "Is there a fee for delivery?",
+        "answer": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, dolor."
+    }
+        
+]
