@@ -249,7 +249,11 @@ button {
 
 .menu img {
     width: 7rem;
+    height: 7rem;
+    margin: 0 auto;
     margin-bottom: 1rem;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .menu h5 {

@@ -9,6 +9,10 @@ class ProductController extends Controller
 {
     public function index() {
      
-        return Inertia::render('Products');
+        $products = json_decode(file_get_contents(storage_path()."./menu.json"), true);
+
+        return Inertia::render('Menu',
+            compact('products')
+        );
     }
 }

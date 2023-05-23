@@ -26,6 +26,9 @@ Route::get('/menu', function () {
     return Inertia::render('Menu');
 });
 
+    
+// Route::get('/menu', [App\Http\Controllers\ProductController::class, 'index'])->name('menu');
+
 Route::get('/menuitem', function () {
     return Inertia::render('MenuItem');
 });
