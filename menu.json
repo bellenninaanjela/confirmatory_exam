@@ -1,6 +1,6 @@
 [
     {
-        "image": "../../img/menu/1.png",
+        "image": "/img/menu/1.png",
         "foodName": "Steak Fries Veggies",
         "type": "Meat",
         "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, vitae!",
@@ -8,7 +8,7 @@
         "ratings": "4.5"
     },
     {
-        "image": "../../img/menu/2.png",
+        "image": "/img/menu/2.png",
         "foodName": "Chicken Salad",
         "type": "Chicken",
         "description": "Sit amet consectetur adipisicing elit. Nihil, vitae!",
@@ -16,7 +16,7 @@
         "ratings": "4.5"
     },
     {
-        "image": "../../img/menu/3.png",
+        "image": "/img/menu/3.png",
         "foodName": "Sorvetes Primavera",
         "type": "Dessert",
         "description": "Adipisicing elit. Nihil, vitae!",
@@ -24,7 +24,7 @@
         "ratings": "4.5"
     },
     {
-        "image": "../../img/menu/4.png",
+        "image": "/img/menu/4.png",
         "foodName": "Fried Chicken",
         "type": "Chicken",
         "description": "Dolor, sit amet consectetur adipisicing elit. Nihil, vitae!",
@@ -32,7 +32,7 @@
         "ratings": "4.5"
     },
     {
-        "image": "../../img/menu/5.png",
+        "image": "/img/menu/5.png",
         "foodName": "Extreme Burger",
         "type": "Beef",
         "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil, vitae!",
@@ -40,7 +40,7 @@
         "ratings": "4.5"
     },
     {
-        "image": "../../img/menu/6.png",
+        "image": "/img/menu/6.png",
         "foodName": "Extreme Burger with",
         "type": "Beef",
         "description": "Ipsum dolor, sit amet consectetur adipisicing elit. Nihil, vitae!",

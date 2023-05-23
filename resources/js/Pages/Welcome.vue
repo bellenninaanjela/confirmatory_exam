@@ -21,11 +21,14 @@
                         <Link href="/">Home</Link>
                     </div>
                     <div>
+                        <Link href="/menu">Menu</Link>
+                    </div>
+                    <!-- <div>
                         <Link href="/">Notification</Link>
                     </div>
                     <div>
                         <Link href="/">Store Locator</Link>
-                    </div>
+                    </div> -->
                     <div>
                         <Link href="/faqs">FAQ's</Link>
                     </div>
@@ -242,6 +245,7 @@
 
     import { Link } from '@inertiajs/vue3'
     import account from '../../../account.json'
+    import Header from '../Pages/Header.vue'
 
     export default {
         components: {
