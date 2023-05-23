@@ -1,12 +1,12 @@
 <template>
-    <nav v-show="!show">
+    <nav v-show="show">
         <div class="sidebar">
             <div class="sidebar-container">
                 <div class="sidebar-header">
                     <div class="user-avatar">
                         <img src="./images.jpg" alt="user_avatar">
                     </div>
-                    <button class="points-header">
+                    <button class="points-header" @click="show = false" >
                         <h4>{{ account.points }} Points</h4>
                         <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -37,7 +37,7 @@
 
     <header>
        <nav>
-            <button class="menu-button" @click="show" >
+            <button class="menu-button" @click="show = true" >
                 <svg class="icons" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
                 </svg>
@@ -229,7 +229,7 @@
 
         
 
-        <Link class="order-now">
+        <Link href="/menu" class="order-now">
             Order Now!
         </Link>
     </main>
@@ -250,7 +250,7 @@
 
         data() {
             return {
-                show: true,
+                show: false,
                 account: account,
             }
         }

@@ -29,3 +29,11 @@ Route::get('/menu', function () {
 Route::get('/menuitem', function () {
     return Inertia::render('MenuItem');
 });
+
+Route::get('/checkout', function () {
+    return Inertia::render('Checkout');
+});
+
+Route::get('/order-received', function () {
+    return Inertia::render('OrderReceived');
+});
