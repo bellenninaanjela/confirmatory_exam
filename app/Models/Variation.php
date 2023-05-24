@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Variation extends Model
 {
     use HasFactory;
+
+    protected $table = "variations";
+
+    protected $fillable = ['name'];
+
+    public function product() {
+        return $this->hasMany(\App\Models\Product::class);
+    }
 }
