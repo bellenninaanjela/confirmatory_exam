@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $table = "product";
+    protected $table = "products";
 
     protected $fillable = [
         'name',
@@ -17,4 +17,9 @@ class Product extends Model
         'variation',
         'price',
     ];
+
+    
+    public function variation() {
+        return $this->belongsTo(\App\Models\Variation::class);
+    }
 }

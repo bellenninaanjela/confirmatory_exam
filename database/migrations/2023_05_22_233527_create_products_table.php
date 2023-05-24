@@ -18,8 +18,8 @@ class CreateProductsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->text('description');
-            $table->text('variation');
             $table->integer('price');
+            $table->foreignId('variation');
         });
     }
 

@@ -22,12 +22,15 @@ Route::get('/faqs', function () {
     return Inertia::render('Faqs');
 });
 
-Route::get('/menu', function () {
-    return Inertia::render('Menu');
-});
+// Route::get('/menu', function () {
+//     return Inertia::render('Menu');
+// });
 
     
-// Route::get('/menu', [App\Http\Controllers\ProductController::class, 'index'])->name('menu');
+Route::get('/menu', [App\Http\Controllers\ProductController::class, 'index'])->name('menu');
+Route::get('/products', [App\Http\Controllers\ProductController::class, 'product_show'])->name('product');
+Route::get('/add-products', [App\Http\Controllers\ProductController::class, 'form_index'])->name('add-product');
+Route::post('/add-products', [App\Http\Controllers\ProductController::class, 'store']);
 
 Route::get('/menuitem', function () {
     return Inertia::render('MenuItem');

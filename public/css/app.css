@@ -765,3 +765,84 @@ button {
     font-size: 15px;
     color: #e40000;
 }
+
+
+/* create form */
+.product-form-container {
+    padding: 1rem .5rem;
+}
+
+.input-container {
+    margin: 1rem 0;
+}
+
+.input-container input[type="text"], textarea {
+    width: 100%;
+    padding: .5rem 1rem;
+    border: 1px solid #d2d2d2;
+    border-radius: 10px;
+    margin-top: .5rem;
+}
+
+.category {
+    display: flex;
+}
+
+.category input[type="radio"] {
+    background-color: #f6f6f6;
+    border: 1px solid #d2d2d2;
+    padding: .5rem 1rem;
+}
+
+.category label{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #f6f6f6;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    padding: .5rem 1rem;
+    margin-top: .5rem;
+}
+
+.add-product-button {
+    background-color: #e40000;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 13px;
+    padding: .8rem 2rem;   
+}
+
+/* product list */
+table {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #d2d2d2;
+    border-radius: 15px;
+    text-align: left;    
+}
+
+td {
+    margin-top: 1rems;
+    padding: .5rem 0;
+}
+
+tbody {
+    font-size: 13px;
+}
+
+.add-button {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: #e40000;
+    border-radius: 25px;
+    padding: .7rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+}
