@@ -60,7 +60,7 @@
     <main>
         <div class="main-header">
             <div class="food-logo">
-                <img src="../../img/burger.png" alt="">
+                <img src="/img/burger.png" alt="">
             </div>
             <div class="greeting">
                 <p>Anneoyong, {{ account.firstName }}!</p>
@@ -89,16 +89,16 @@
 
             <div class="special-offer-cards">
                 <div class="special-card">
-                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                    <img src="/img/special_offers/vegburger1.png" alt="">
                 </div>
                 <div class="special-card">
-                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                    <img src="/img/special_offers/vegburger1.png" alt="">
                 </div>
                 <div class="special-card">
-                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                    <img src="/img/special_offers/vegburger1.png" alt="">
                 </div>
                 <div class="special-card">
-                    <img src="../../img/special_offers/vegburger1.png" alt="">
+                    <img src="/img/special_offers/vegburger1.png" alt="">
                 </div>
             </div>
 
@@ -114,7 +114,7 @@
             <div class="category-cards">
                 <div>
                     <div class="category-card">
-                        <img src="../../img/category/category3.jpg" alt="">
+                        <img src="/img/category/category3.jpg" alt="">
                         <div class="category-info">
                             <h5>Chicken</h5>
                             <p>9 recipes</p>
@@ -124,7 +124,7 @@
                 
                 <div>
                     <div class="category-card">
-                        <img src="../../img/category/category3.jpg" alt="">
+                        <img src="/img/category/category3.jpg" alt="">
                         <div class="category-info">
                             <h5>Veggies</h5>
                             <p>6 recipes</p>
@@ -134,7 +134,7 @@
                 
                 <div>
                     <div class="category-card">
-                        <img src="../../img/category/category3.jpg" alt="">
+                        <img src="/img/category/category3.jpg" alt="">
                         <div class="category-info">
                             <h5>Overload</h5>
                             <p>3 recipes</p>
@@ -148,85 +148,62 @@
         <!-- whats new -->
         <div class="whats-new-container">
             <h4>What's New?</h4>
-            <img src="../../img/special_offers/special_menu.png" alt="">
+            <img src="/img/special_offers/special_menu.png" alt="">
         </div>
 
         <!-- most popular -->
         <div class="most-popular-container">
             <h4>Most Popular</h4>
             <div class="menu-cards">
-                <Link href="/menu" class="menu menu1">
-                    <img src="../../img/menu/1.png" alt="">
-                    <div>
+                <MenuCard>
+                    <template #food-img>
+                        <img src="/img/menu/1.png" alt="">
+                    </template>
+                    <template #default>
                         <h5>Steak Fries Veggies</h5>
                         <p class="menu-type">Meat</p>
-                    </div>
-
-                    <div class="menu-footer">
+                    </template>
+                    <template #footer>
                         <p class="price">P 175</p>
-                        <div class="ratings">
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                        </div>
-                    </div>
-                </Link>
-                <div class="menu menu1">
-                    <img src="../../img/menu/1.png" alt="">
-                    <div>
+                    </template>
+                </MenuCard>
+                <MenuCard>
+                    <template #food-img>
+                        <img src="/img/menu/1.png" alt="">
+                    </template>
+                    <template #default>
                         <h5>Steak Fries Veggies</h5>
                         <p class="menu-type">Meat</p>
-                    </div>
-
-                    <div class="menu-footer">
+                    </template>
+                    <template #footer>
                         <p class="price">P 175</p>
-                        <div class="ratings">
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                        </div>
-                    </div>
-                </div>
-                <div class="menu menu1">
-                    <img src="../../img/menu/1.png" alt="">
-                    <div>
+                    </template>
+                </MenuCard>
+                <MenuCard>
+                    <template #food-img>
+                        <img src="/img/menu/1.png" alt="">
+                    </template>
+                    <template #default>
                         <h5>Steak Fries Veggies</h5>
                         <p class="menu-type">Meat</p>
-                    </div>
-
-                    <div class="menu-footer">
+                    </template>
+                    <template #footer>
                         <p class="price">P 175</p>
-                        <div class="ratings">
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                        </div>
-                    </div>
-                </div>
-                <div class="menu menu1">
-                    <img src="../../img/menu/1.png" alt="">
-                    <div>
+                    </template>
+                </MenuCard>
+                <MenuCard>
+                    <template #food-img>
+                        <img src="/img/menu/1.png" alt="">
+                    </template>
+                    <template #default>
                         <h5>Steak Fries Veggies</h5>
                         <p class="menu-type">Meat</p>
-                    </div>
-
-                    <div class="menu-footer">
+                    </template>
+                    <template #footer>
                         <p class="price">P 175</p>
-                        <div class="ratings">
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                            &#9733;
-                        </div>
-                    </div>
-                </div>
+                    </template>
+                </MenuCard>
+
             </div>
         </div>
 
@@ -246,10 +223,12 @@
     import { Link } from '@inertiajs/vue3'
     import account from '../../../account.json'
     import Header from '../Pages/Header.vue'
+    import MenuCard from '../Components/MenuCard.vue'
 
     export default {
         components: {
-            Link
+            Link,
+            MenuCard
         },
 
         data() {

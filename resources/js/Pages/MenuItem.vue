@@ -17,7 +17,7 @@
 
     <main class="">
         <div class="menu-image">
-            <img src="../../img/menu/4.png" alt="">
+            <img src="/img/menu/4.png" alt="">
         </div>
 
         <div class="menu-info">
@@ -63,14 +63,13 @@
         <div class="add-ons-container">
             <h5>Add-Ons</h5>
             <div class="add-ons-checkbox">
-                <img src="../../img/addOns/sauce.png" alt="">
+                <img src="/img/addOns/sauce.png" alt="">
                 <div class="add-ons-info">
                     <h5>Tomato Sauce</h5>
                     <p>Sauce</p>
                     <p class="price">P 49</p>
                 </div>
                 <div class="right">
-                    <input type="checkbox" name="tomato sauce" id=""/>
                     <div class="quantity-container">
                         <button @click="sauceDec()" class="dec">-</button>
                         <span>{{ sauceCount }}</span>
@@ -79,7 +78,7 @@
                 </div>
             </div>
             <div class="add-ons-checkbox">
-                <img src="../../img/addOns/fries.png" alt="">
+                <img src="/img/addOns/fries.png" alt="">
                 <div class="add-ons-info">
                     <h5>Fries</h5>
                     <p>Fries</p>
@@ -123,8 +122,8 @@
 
 <script>
     import { Link } from '@inertiajs/vue3'
-    import menu from '../../../menu.json'
-    import Modal from './Modal.vue'
+    import menu from '/../menu.json'
+    import Modal from '../Components/Modal.vue'
 
     export default {
         components: {
