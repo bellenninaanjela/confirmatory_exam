@@ -34,24 +34,18 @@
         </div>
 
         <div class="menu-cards">
-            <Link href="/menuitem" class="menu" v-for="menu in menu" :key="menu.id">
-                <img :src="menu.image" alt="">
-                <div>
+            <MenuCard v-for="menu in menu" :key="menu.id">
+                <template #food-img>
+                    <img :src="menu.image" alt="">
+                </template>
+                <template #default>
                     <h5>{{ menu.foodName }}</h5>
                     <p class="menu-type">{{ menu.type }}</p>
-                </div>
-
-                <div class="menu-footer">
+                </template>
+                <template #footer>
                     <p class="price">P {{ menu.price }}</p>
-                    <div class="ratings">
-                        &#9733;
-                        &#9733;
-                        &#9733;
-                        &#9733;
-                        &#9733;
-                    </div>
-                </div>
-            </Link>
+                </template>
+            </MenuCard>
         </div>
     </main>
 
@@ -60,10 +54,12 @@
 <script>
     import { Link } from '@inertiajs/vue3'
     import menu from '../../../menu.json'
+    import MenuCard from '../Components/MenuCard.vue'
 
     export default {
         components: {
-            Link
+            Link,
+            MenuCard
         },
         data() {
             return {
