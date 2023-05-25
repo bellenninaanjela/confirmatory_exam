@@ -17,21 +17,16 @@
                 <p class="contact-number">+63 912 345 6789</p>
 
                 <div class="links">
-                    <div>
                         <Link href="/">Home</Link>
-                    </div>
-                    <div>
                         <Link href="/menu">Menu</Link>
-                    </div>
+                        <Link href="/products">Product Management</Link>
                     <!-- <div>
                         <Link href="/">Notification</Link>
                     </div>
                     <div>
                         <Link href="/">Store Locator</Link>
                     </div> -->
-                    <div>
                         <Link href="/faqs">FAQ's</Link>
-                    </div>
                 </div>
             </div>
 

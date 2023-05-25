@@ -23,6 +23,7 @@
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-vue3": "^0.6.0",
         "@inertiajs/vue3": "^1.0.7",
-        "vue": "^3.3.4"
+        "vue": "^3.3.4",
+        "vue-axios": "^3.5.2"
     }
 }
