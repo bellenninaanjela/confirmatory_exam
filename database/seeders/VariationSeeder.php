@@ -15,7 +15,6 @@ class VariationSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(VariationSeeder::class);
 
         DB::table('variations')->insert([
             'name' => 'beef',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Variation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -30,7 +31,7 @@ class ProductController extends Controller
     }
     
     // Display Product Create Form
-    public function form_index() {
+    public function add_form() {
 
         $products = Product::all();
      
@@ -40,24 +41,46 @@ class ProductController extends Controller
     }
 
     
+    
+    // Display Product Edit Form
+    public function edit_form(Product $id) {
 
-    public function product_store(Request $request) {
+        $products = Product::find($id);
+     
+        return Inertia::render('EditProduct',
+            compact('products')
+        );
+    }
 
+    
+
+    public function store_product(Request $request) {
+        
+        // $variation = Variation::find($variationId);
+        
         $product = new Product;
         $product->name = $request->product_name;
         $product->description = $request->product_description;
         $product->price = $request->product_price;
 
-        $variation = new Variation;
-        $variation->name = $request->variation;
-
-        $product -> save();
-        $variation -> save();
-
-        return Inertia::render(
-            'CreateMenu',
-            compact('product', 'variation')
-        );
+        $product->variation = $request->variation; 
+    
+        $product->save();
+    
+        return Redirect::route('product');
     }
 
+    public function edit_product(Request $request, Product $id) {
+               
+        $product = Product::find($id);
+        $product->name = $request->product_name;
+        $product->description = $request->product_description;
+        $product->price = $request->product_price;
+
+        $product->variation = $request->variation; 
+    
+        $product->save();
+    
+        return Redirect::route('product');
+    }
 }

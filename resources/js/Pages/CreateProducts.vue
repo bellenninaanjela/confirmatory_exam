@@ -1,8 +1,8 @@
 <template>  
     <div class="product-form-container">
-        <form action="" @submit.prevent="create_product">
+        <form action="" @submit.prevent="create">
             <div class="input-container">
-                <label for="name">
+                <label for="product_name">
                     Name of Product
                     <input 
                         type="text" 
@@ -23,7 +23,7 @@
                 <label for="name">
                     Price of product
                     <input 
-                        v-model="product_price"
+                        v-model="form.product_price"
                         type="text" 
                         placeholder="price" 
                         name="product_price"
@@ -35,15 +35,15 @@
                 <div class="category">
                     <label for="beef">
                         Beef
-                        <input v-model="variation" type="radio" name="variation" id="variation" value="beef">
+                        <input v-model="form.variation" type="radio" name="variation" id="variation" value="1">
                     </label>
                     <label for="chicken">
                         Chicken
-                        <input v-model="variation" type="radio" name="variation" id="variation" value="chicken">
+                        <input v-model="form.variation" type="radio" name="variation" id="variation" value="2">
                     </label>
                     <label for="veggies">
                         Veggies
-                        <input v-model="variation" type="radio" name="variation" id="variation" value="veggies">
+                        <input v-model="form.variation" type="radio" name="variation" id="variation" value="3">
                     </label>
                 </div>
             </div>
@@ -53,18 +53,25 @@
     </div>
 </template>
 
-<script setup>
+<script>
+    export default {
+        data() {
+            return {
+                form: {
+                    product_name: '',
+                    product_description: '',
+                    product_price: '',
+                    variation: ''
+                }
+            }
+        },
 
-    import { useForm } from '@inertiajs/vue3';
-
-    const props = defineProps({
-        product_name: String,
-        
-
-    })
-
-    const submit = () => {
-        form.post(route('add-products.store'))
+        methods: {
+            create() {
+                this.$inertia.post('/add-products', this.form);
+            }
+        }
     }
+
 
 </script>
