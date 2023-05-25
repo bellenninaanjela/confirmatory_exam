@@ -10,7 +10,6 @@
                         placeholder="Enter name of product" 
                         name="product_name" 
                         id="product_name"
-                        value="{{ products.name }}"
                     >
                 </label>
             </div>
@@ -21,7 +20,6 @@
                         v-model="form.product_description" 
                         name="product_description" 
                         id="product_description"
-                        value="{{ products.description }}"
                     ></textarea>
                 </label>
             </div>
@@ -33,7 +31,6 @@
                         type="text" 
                         placeholder="price" 
                         name="product_price"
-                        value="{{ products.price }}"
                     >
                 </label>
             </div>
@@ -55,35 +52,41 @@
                 </div>
             </div>
 
-            <button type="submit" class="add-product-button">Add Product</button>
+            <div class="flex between">
+                <Link href="/products" class="back-products-button">Back</Link>
+                <button type="submit" class="add-product-button edit-btn">Edit</button>
+            </div>
         </form>
     </div>
 </template>
 
 <script>
+    import { Link } from '@inertiajs/vue3';
+
     export default {
+        components: {
+            Link
+        },
         data() {
             return {
                 form: {
-                    product_name: '',
-                    product_description: '',
-                    product_price: '',
-                    variation: ''
+                    product_name: this.product.name,
+                    product_description: this.product.description,
+                    product_price: this.product.price,
+                    variation: this.product.variation
                 },
-                product: []
             }
         },
 
         props: {
-            products: {
-                type: Array,
-                required: true
+            product: {
+                type: Object,
             }
         },
 
         methods: {
             edit() {
-                this.$inertia.put(route('update_product'), {this: this.product.id});
+                this.$inertia.put(`/products/edit/${this.product.id}`, this.form);
             }
         }
     }

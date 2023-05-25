@@ -16,8 +16,16 @@ class VariationSeeder extends Seeder
     public function run()
     {
 
-        DB::table('variations')->insert([
-            'name' => 'beef',
-        ]);
+        $variations = [
+            'Beef',
+            'Chicken',
+            'Veggies',
+        ];
+        
+        foreach($variations as $variation) {
+            Variation::create([
+                'name' => $variation
+            ]);
+        }
     }
 }

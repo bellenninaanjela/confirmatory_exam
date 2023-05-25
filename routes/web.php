@@ -40,6 +40,9 @@ Route::post('/add-products', [App\Http\Controllers\ProductController::class, 'st
 Route::get('/products/edit/{products}', [App\Http\Controllers\ProductController::class, 'edit_form'])->name('edit_product');
 Route::put('/products/edit/{products}', [App\Http\Controllers\ProductController::class, 'update_product'])->name('update_product');
 
+// delete product route
+Route::delete('/products/delete/{products}', [App\Http\Controllers\ProductController::class, 'delete_product'])->name('delete_product');
+
 Route::get('/menuitem', function () {
     return Inertia::render('MenuItem');
 });

@@ -782,7 +782,7 @@ button {
     width: 100%;
     padding: .5rem 1rem;
     border: 1px solid #d2d2d2;
-    border-radius: 10px;
+    border-radius: 6px;
     margin-top: .5rem;
 }
 
@@ -816,6 +816,20 @@ button {
     width: 100%;
     border-radius: 13px;
     padding: .8rem 2rem;   
+}
+
+.back-products-button {
+    background-color: #ababab;
+    color: white;
+    font-weight: 600;
+    width: 49%;
+    border-radius: 13px;
+    padding: .8rem 2rem;  
+    text-align: center; 
+}
+
+.edit-btn {
+    width: 49%;
 }
 
 /* product list */
@@ -871,3 +885,4 @@ td.buttons .delete {
     color: #676767;
     margin: 0 .2rem;
 }
+

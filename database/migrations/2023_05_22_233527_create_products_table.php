@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('price');
-            $table->foreignId('variation');
+            $table->foreignId('variation_id');
         });
     }
 
