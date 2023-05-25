@@ -30194,16 +30194,6 @@ ${codeFrame}` : message);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Edit":
-/*!*********************************!*\
-  !*** ./resources/js/Pages/Edit ***!
-  \*********************************/
-/***/ (() => {
-
-
-
-/***/ }),
-
 /***/ "./resources/js/Pages sync recursive ^\\.\\/.*$":
 /*!*******************************************!*\
   !*** ./resources/js/Pages/ sync ^\.\/.*$ ***!
@@ -30215,7 +30205,6 @@ var map = {
 	"./Checkout.vue": "./resources/js/Pages/Checkout.vue",
 	"./CreateProducts": "./resources/js/Pages/CreateProducts.vue",
 	"./CreateProducts.vue": "./resources/js/Pages/CreateProducts.vue",
-	"./Edit": "./resources/js/Pages/Edit",
 	"./EditProduct": "./resources/js/Pages/EditProduct.vue",
 	"./EditProduct.vue": "./resources/js/Pages/EditProduct.vue",
 	"./Faqs": "./resources/js/Pages/Faqs.vue",
