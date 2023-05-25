@@ -28,9 +28,17 @@ Route::get('/faqs', function () {
 
     
 Route::get('/menu', [App\Http\Controllers\ProductController::class, 'index'])->name('menu');
+
+
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'product_show'])->name('product');
-Route::get('/add-products', [App\Http\Controllers\ProductController::class, 'form_index'])->name('add-product');
-Route::post('/add-products', [App\Http\Controllers\ProductController::class, 'store']);
+
+// add product routes
+Route::get('/add-products', [App\Http\Controllers\ProductController::class, 'add_form'])->name('add_product');
+Route::post('/add-products', [App\Http\Controllers\ProductController::class, 'store_product'])->name('store_product');
+
+// edit product routes
+Route::get('/products/edit/{products}', [App\Http\Controllers\ProductController::class, 'edit_form'])->name('edit_product');
+Route::put('/products/edit/{products}', [App\Http\Controllers\ProductController::class, 'update_product'])->name('update_product');
 
 Route::get('/menuitem', function () {
     return Inertia::render('MenuItem');
