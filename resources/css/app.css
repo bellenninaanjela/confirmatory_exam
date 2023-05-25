@@ -324,9 +324,11 @@ button {
     margin-top: 1rem;
     font-size: 13px;
     font-weight: 600;
+    display: flex;
+    flex-direction: column;
 }
 
-.links > div {
+.links > a {
     margin: .8rem 0;
 }
 
@@ -823,6 +825,10 @@ table {
     text-align: left;    
 }
 
+th {
+    font-size: 14px;
+}
+
 td {
     margin-top: 1rems;
     padding: .5rem 0;
@@ -842,4 +848,23 @@ tbody {
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
+}
+
+td.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+td.buttons .edit {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: #ffaa00;
+    margin: 0 .2rem;
+}
+
+td.buttons .delete {
+    width: 1.2rem;
+    height: 1.2rem;
+    color: #676767;
+    margin: 0 .2rem;
 }

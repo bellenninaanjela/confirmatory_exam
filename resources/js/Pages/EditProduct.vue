@@ -1,6 +1,6 @@
 <template>  
     <div class="product-form-container">
-        <form action="" @submit.prevent="create">
+        <form action="" @submit.prevent="edit">
             <div class="input-container">
                 <label for="product_name">
                     Name of Product
@@ -10,13 +10,19 @@
                         placeholder="Enter name of product" 
                         name="product_name" 
                         id="product_name"
+                        value="{{ products.name }}"
                     >
                 </label>
             </div>
             <div class="input-container">
                 <label for="description">
                     Product Description
-                    <textarea v-model="form.product_description" name="product_description" id="product_description"></textarea>
+                    <textarea 
+                        v-model="form.product_description" 
+                        name="product_description" 
+                        id="product_description"
+                        value="{{ products.description }}"
+                    ></textarea>
                 </label>
             </div>
             <div class="input-container">
@@ -27,6 +33,7 @@
                         type="text" 
                         placeholder="price" 
                         name="product_price"
+                        value="{{ products.price }}"
                     >
                 </label>
             </div>
@@ -62,13 +69,21 @@
                     product_description: '',
                     product_price: '',
                     variation: ''
-                }
+                },
+                product: []
+            }
+        },
+
+        props: {
+            products: {
+                type: Array,
+                required: true
             }
         },
 
         methods: {
-            create() {
-                this.$inertia.post('/add-products', this.form);
+            edit() {
+                this.$inertia.put(route('update_product'), {this: this.product.id});
             }
         }
     }
