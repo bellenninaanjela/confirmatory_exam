@@ -11,7 +11,10 @@ class Variation extends Model
 
     protected $table = "variations";
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'image'
+    ];
 
     public function product() {
         return $this->hasMany(\App\Models\Product::class);

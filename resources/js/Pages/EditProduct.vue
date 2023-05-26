@@ -37,18 +37,12 @@
             <div class="input-container" >
                 <label>Category</label>
                 <div class="category">
-                    <label for="beef">
-                        Beef
-                        <input v-model="form.variation" type="radio" name="variation" id="variation" value="1">
-                    </label>
-                    <label for="chicken">
-                        Chicken
-                        <input v-model="form.variation" type="radio" name="variation" id="variation" value="2">
-                    </label>
-                    <label for="veggies">
-                        Veggies
-                        <input v-model="form.variation" type="radio" name="variation" id="variation" value="3">
-                    </label>
+                    <div class="category" v-for="variation in variations" :key="variation.id">
+                        <label>
+                            {{ variation.name}}
+                            <input v-model="form.variation" type="radio" name="variation" id="variation" :value="variation.id">
+                        </label>
+                    </div>
                 </div>
             </div>
 
@@ -73,13 +67,17 @@
                     product_name: this.product.name,
                     product_description: this.product.description,
                     product_price: this.product.price,
-                    variation: this.product.variation
+                    // variation: this.product.variation
                 },
             }
         },
 
         props: {
             product: {
+                type: Object,
+            },
+
+            variations: {
                 type: Object,
             }
         },

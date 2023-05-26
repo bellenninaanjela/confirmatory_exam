@@ -19,7 +19,7 @@
                     <td>{{ product.name}}</td>
                     <td>{{ product.description }}</td>
                     <td>P {{ product.price }}</td>
-                    <td>{{ product.variation_id }}</td>
+                    <td>{{ product.variation.name }}</td>
                     <td class="buttons">
                         <button @click="delete(`${product.id}`)">
                             <svg class="delete" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -57,13 +57,9 @@
             }
         },
 
-        created() {
-            console.log('un');
-        },
-
         method: {
-            delete() {
-                this.$inertia.delete(`/products/delete/${this.products.id}`, this.form)
+            delete(id) {
+                this.$inertia.delete('/products/delete/' + $id , this.form)
             }
         }
     }

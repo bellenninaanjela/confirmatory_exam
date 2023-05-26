@@ -34,9 +34,10 @@ class ProductController extends Controller
     public function add_form() {
 
         $products = Product::all();
+        $variations = Variation::all();
      
         return Inertia::render('CreateProducts',
-            compact('products')
+            compact('products', 'variations')
         );
     }
 
@@ -46,9 +47,10 @@ class ProductController extends Controller
     public function edit_form($id) {
 
         $product = Product::find($id);
+        $variations = Variation::all();
 
         return Inertia::render('EditProduct',
-            compact('product')
+            compact('product', 'variations')
         );
     }
 
@@ -70,6 +72,8 @@ class ProductController extends Controller
 
     public function update_product(Request $request, $id) {
 
+        $variations = Variation::all();
+
         $product = Product::find($id);
         $product->name = $request->product_name;
         $product->description = $request->product_description;
@@ -79,10 +83,10 @@ class ProductController extends Controller
 
         $product->save();
     
-        return Redirect::route('product');
+        return Redirect::route('product', compact('variations'));
     }
 
     public function delete_product($id) {
-        $product = Product::where('id', $id)->delete();
+        $product = Product::find($id)->delete();
     }
 }

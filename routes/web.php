@@ -14,9 +14,8 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('welcome');
+Route::get('/category/{category_id}', [App\Http\Controllers\HomeController::class, 'category_index'])->name('categorys');
 
 Route::get('/faqs', function () {
     return Inertia::render('Faqs');

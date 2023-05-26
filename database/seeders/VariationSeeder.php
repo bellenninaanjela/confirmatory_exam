@@ -17,15 +17,22 @@ class VariationSeeder extends Seeder
     {
 
         $variations = [
-            'Beef',
-            'Chicken',
-            'Veggies',
+            [
+                'name' => 'Beef',
+                'image' => '/img/category/category3.jpg'
+            ],
+            [
+                'name' => 'Chicken',
+                'image' => '/img/category/category1.jpg'
+            ],
+            [
+                'name' => 'Veggies',
+                'image' => '/img/category/category4.jpg'
+            ],
         ];
         
         foreach($variations as $variation) {
-            Variation::create([
-                'name' => $variation
-            ]);
+            $variation = Variation::create($variation);
         }
     }
 }

@@ -16,6 +16,8 @@ class CreateVariationsTable extends Migration
         Schema::create('variations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('image')->nullable();
+            $table->softDeletes(); //deletedat, restoredAt
             $table->timestamps();
         });
     }

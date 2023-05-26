@@ -71,6 +71,8 @@
             <input type="text" placeholder="try our new Steak Fries Veggies" class="search-input">
         </div>
 
+
+
         <div class="special-offer-container">
             <div class="special-title">
                 <h4>Special Offers!</h4>
@@ -107,36 +109,26 @@
             </div>
 
             <div class="category-cards">
-                <div>
-                    <div class="category-card">
-                        <img src="/img/category/category3.jpg" alt="">
-                        <div class="category-info">
-                            <h5>Chicken</h5>
-                            <p>9 recipes</p>
-                        </div>
+                <Link 
+                    class="category-card" 
+                    v-for="variation in variations" 
+                    :key="variation.id"
+                    :href="`/category/${variation.id}`" 
+                >
+                    <img :src="variation.image" alt="">
+                    <div class="category-info">
+                        <h5>{{ variation.name }}</h5>
+                        <template :v-if="variation.id === 1">
+                            <p >{{ beef.length }} meals</p>
+                        </template>
+                        <template :v-else-if="variation.id === 2">
+                            <p >{{ chicken.length }} meals</p>
+                        </template>
+                        <template :v-else-if="variation.id === 3">
+                            <p >{{ veggy.length }} meals</p>
+                        </template>
                     </div>
-                </div>
-                
-                <div>
-                    <div class="category-card">
-                        <img src="/img/category/category3.jpg" alt="">
-                        <div class="category-info">
-                            <h5>Veggies</h5>
-                            <p>6 recipes</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <div class="category-card">
-                        <img src="/img/category/category3.jpg" alt="">
-                        <div class="category-info">
-                            <h5>Overload</h5>
-                            <p>3 recipes</p>
-                        </div>
-                    </div>
-                </div>
-
+                </Link>
             </div>
         </div>
 
@@ -231,6 +223,17 @@
                 show: false,
                 account: account,
             }
+        },
+
+        props: {
+            variations: {
+                type: Array,
+                required: true
+            },
+
+            beef: {type: Array},
+            chicken: {type: Array},
+            veggy: {type: Array},
         }
     }
 </script>
