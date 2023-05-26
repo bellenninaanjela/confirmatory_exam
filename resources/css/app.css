@@ -775,7 +775,7 @@ button {
     margin: 1rem 0;
 }
 
-.input-container input[type="text"], textarea {
+.input-container input:not(input[type="radio"]), textarea {
     width: 100%;
     padding: .5rem 1rem;
     border: 1px solid #d2d2d2;
@@ -858,7 +858,7 @@ tbody {
     right: 1rem;
     background-color: #e40000;
     border-radius: 25px;
-    padding: .7rem 1rem;
+    padding: .6rem 1rem;
     font-size: 1rem;
     font-weight: 600;
     color: #fff;

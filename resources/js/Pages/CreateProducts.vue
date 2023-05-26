@@ -26,7 +26,7 @@
                     Price of product
                     <input 
                         v-model="form.product_price"
-                        type="text" 
+                        type="number" 
                         placeholder="price" 
                         name="product_price"
                     >
@@ -34,10 +34,10 @@
             </div>
             <div class="input-container" >
                 <label>Category</label>
-                <div class="category" v-for="variation in variations" :key="variation.id">
+                <div class="category" v-for="category in categories" :key="category.id">
                     <label>
-                        {{ variation.name }}
-                        <input v-model="form.variation" type="radio" name="variation" id="variation" :value="variation.id">
+                        {{ category.name }}
+                        <input v-model="form.category" type="radio" name="category" id="category" :value="category.id">
                     </label>
                 </div>
             </div>
@@ -58,13 +58,13 @@
                     product_name: '',
                     product_description: '',
                     product_price: '',
-                    variation: ''
+                    category: ''
                 },
             }
         },
 
         props: {
-            variations: {
+            categories: {
                 type: Object,
             }
         },
@@ -99,7 +99,7 @@ tr      6. Success message modal
 
 -       7. Create/edit form components into one
 
-a       8. Proper data types and input types
+90%     8. Proper data types and input types
 
 tr      9. Categories cms + image if no image: logo img
 
@@ -111,11 +111,24 @@ tr      9. Categories cms + image if no image: logo img
 -       1. migrations: softDelete() 
 
 a       2. Name 'variation' convert to 'category'
+            -migrations:
+                -products
+                -variation
+            -model:
+                -product
+                -variation
+            -controller:
+                -ProductionController 
+                    -method
+                    -declaration
+                -VariationController
+                    -method
+                    -function
 
 100%    3. Category migration: add images   - DONE
 
 a       4. Controller: refactor storing syntax
 
-50%     5. Price data type: decimal
+100%    5. Price data type: decimal
 
  -->
