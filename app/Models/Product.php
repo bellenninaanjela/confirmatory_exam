@@ -14,12 +14,12 @@ class Product extends Model
     protected $fillable = [
         'name',
         'description',
-        'variation_id',
+        'category_id',
         'price',
     ];
 
     
-    public function variation() {
-        return $this->belongsTo(\App\Models\Variation::class);
+    public function category() {
+        return $this->belongsTo(\App\Models\Category::class);
     }
 }

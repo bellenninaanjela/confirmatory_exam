@@ -2,42 +2,36 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
-use App\Models\Variation;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController extends Controller
 {
     public function index() {
-        
-        // $variations = Variation::join('products', 'products.variation_id', 'variations.id')->get();
 
-        // $beef = Product::where('variation_id', 1)->get();
-        // $chicken = Product::where('variation_id', 2)->get();
-        // $veggy = Product::where('variation_id', 3)->get();
+        $categories = Category::all();
+        $categoryProducts = [];
 
-        $variations = Variation::all();
-        $variationProducts = [];
+        foreach ($categories as $category) {
+            $products = Product::where('category_id', $category->id)->get();
 
-        foreach ($variations as $var) {
-            $products = Product::where('variation_id', $var->id)->get();
-
-            $variationProducts[$var->name] = $products;
+            $categoryProducts[$category->name] = $products;
         }
 
-        $beef = $variationProducts['Beef'];
-        $chicken = $variationProducts['Chicken'];
-        $veggy = $variationProducts['Veggies'];
+        $beef = $categoryProducts['Beef'];
+        $chicken = $categoryProducts['Chicken'];
+        $veggy = $categoryProducts['Veggies'];
 
-        return Inertia::render('Welcome', compact('variations', 'beef', 'chicken', 'veggy'));
+        return Inertia::render('Welcome', compact('categories', 'beef', 'chicken', 'veggy'));
     }
 
     // Displays category vue
     public function category_index($category_id) {
-        $category = Variation::find($category_id);
+        $category = Category::find($category_id);
 
-        $products = Product::where('variation_id', $category_id)->get();
+        $products = Product::where('category_id', $category_id)->get();
 
         return Inertia::render('CategoriesView', compact('products', 'category'));
     }

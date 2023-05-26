@@ -1,12 +1,11 @@
 <?php
 
 namespace Database\Seeders;
-use Illuminate\Support\Facades\DB;
 
-use App\Models\Variation;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
-class VariationSeeder extends Seeder
+class CategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +14,7 @@ class VariationSeeder extends Seeder
      */
     public function run()
     {
-
+        
         $variations = [
             [
                 'name' => 'Beef',
@@ -32,7 +31,7 @@ class VariationSeeder extends Seeder
         ];
         
         foreach($variations as $variation) {
-            $variation = Variation::create($variation);
+            $variation = Category::create($variation);
         }
     }
 }

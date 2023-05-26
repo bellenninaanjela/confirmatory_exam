@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Variation;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
@@ -23,7 +23,7 @@ class ProductController extends Controller
 
     // Display product table
     public function product_show() {
-        $products = Product::with('variation')->get();
+        $products = Product::with('category')->get();
 
         return Inertia::render('ProductList',
             compact('products')
@@ -34,10 +34,10 @@ class ProductController extends Controller
     public function add_form() {
 
         $products = Product::all();
-        $variations = Variation::all();
+        $categories = Category::all();
      
         return Inertia::render('CreateProducts',
-            compact('products', 'variations')
+            compact('products', 'categories')
         );
     }
 
@@ -47,10 +47,10 @@ class ProductController extends Controller
     public function edit_form($id) {
 
         $product = Product::find($id);
-        $variations = Variation::all();
+        $categories = Category::all();
 
         return Inertia::render('EditProduct',
-            compact('product', 'variations')
+            compact('product', 'categories')
         );
     }
 
@@ -63,7 +63,7 @@ class ProductController extends Controller
         $product->description = $request->product_description;
         $product->price = $request->product_price;
 
-        $product->variation_id = $request->variation; 
+        $product->category_id = $request->category; 
     
         $product->save();
     
@@ -72,18 +72,18 @@ class ProductController extends Controller
 
     public function update_product(Request $request, $id) {
 
-        $variations = Variation::all();
+        $categories = Category::all();
 
         $product = Product::find($id);
         $product->name = $request->product_name;
         $product->description = $request->product_description;
         $product->price = $request->product_price;
 
-        $product->variation_id = $request->variation; 
+        $product->category_id = $request->category; 
 
         $product->save();
     
-        return Redirect::route('product', compact('variations'));
+        return Redirect::route('product', compact('categories'));
     }
 
     public function delete_product($id) {

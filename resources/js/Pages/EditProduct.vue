@@ -37,10 +37,10 @@
             <div class="input-container" >
                 <label>Category</label>
                 <div class="category">
-                    <div class="category" v-for="variation in variations" :key="variation.id">
+                    <div class="category" v-for="category in categories" :key="category.id">
                         <label>
-                            {{ variation.name}}
-                            <input v-model="form.variation" type="radio" name="variation" id="variation" :value="variation.id">
+                            {{ category.name}}
+                            <input v-model="form.category" type="radio" name="category" id="category" :value="category.id">
                         </label>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                 type: Object,
             },
 
-            variations: {
+            categories: {
                 type: Object,
             }
         },

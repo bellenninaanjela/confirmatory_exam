@@ -111,20 +111,20 @@
             <div class="category-cards">
                 <Link 
                     class="category-card" 
-                    v-for="variation in variations" 
-                    :key="variation.id"
-                    :href="`/category/${variation.id}`" 
+                    v-for="category in categories" 
+                    :key="category.id"
+                    :href="`/category/${category.id}`" 
                 >
-                    <img :src="variation.image" alt="">
+                    <img :src="category.image" alt="">
                     <div class="category-info">
-                        <h5>{{ variation.name }}</h5>
-                        <template :v-if="variation.id === 1">
+                        <h5>{{ category.name }}</h5>
+                        <template :v-if="category.id === 1">
                             <p >{{ beef.length }} meals</p>
                         </template>
-                        <template :v-else-if="variation.id === 2">
+                        <template :v-else-if="category.id === 2">
                             <p >{{ chicken.length }} meals</p>
                         </template>
-                        <template :v-else-if="variation.id === 3">
+                        <template :v-else-if="category.id === 3">
                             <p >{{ veggy.length }} meals</p>
                         </template>
                     </div>
@@ -226,7 +226,7 @@
         },
 
         props: {
-            variations: {
+            categories: {
                 type: Array,
                 required: true
             },
