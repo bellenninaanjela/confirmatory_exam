@@ -40,7 +40,7 @@ Route::get('/products/edit/{products}', [App\Http\Controllers\ProductController:
 Route::put('/products/edit/{products}', [App\Http\Controllers\ProductController::class, 'update_product'])->name('update_product');
 
 // delete product route
-Route::delete('/products/delete/{products}', [App\Http\Controllers\ProductController::class, 'delete_product'])->name('delete_product');
+Route::delete('/products/delete/{product}', [App\Http\Controllers\ProductController::class, 'delete_product'])->name('delete_product');
 
 Route::get('/menuitem', function () {
     return Inertia::render('MenuItem');

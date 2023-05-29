@@ -118,16 +118,23 @@
                     <img :src="category.image" alt="">
                     <div class="category-info">
                         <h5>{{ category.name }}</h5>
-                        <template :v-if="category.id === 1">
-                            <p >{{ beef.length }} meals</p>
-                        </template>
-                        <template :v-else-if="category.id === 2">
-                            <p >{{ chicken.length }} meals</p>
-                        </template>
-                        <template :v-else-if="category.id === 3">
-                            <p >{{ veggy.length }} meals</p>
-                        </template>
+                        <div>
+                            <p v-show="category.id === 1">
+                                {{ beef.length }} meals
+                            </p>
+                        </div>
+                        <div>
+                            <p v-show="category.id === 2">
+                                {{ chicken.length }} meals
+                            </p>
+                        </div>
+                        <div>
+                            <p v-show="category.id === 3">
+                                {{ veggy.length }} meals
+                            </p>
+                        </div>
                     </div>
+
                 </Link>
             </div>
         </div>
