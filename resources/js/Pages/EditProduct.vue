@@ -11,6 +11,7 @@
                         name="product_name" 
                         id="product_name"
                     >
+                    <p class="error" v-if="errors.product_name" >{{ errors.product_name }}</p>
                 </label>
             </div>
             <div class="input-container">
@@ -21,6 +22,7 @@
                         name="product_description" 
                         id="product_description"
                     ></textarea>
+                    <p class="error" v-if="errors.product_description" >{{ errors.product_description }}</p>
                 </label>
             </div>
             <div class="input-container">
@@ -32,18 +34,18 @@
                         placeholder="price" 
                         name="product_price"
                     >
+                    <p class="error" v-if="errors.product_price" >{{ errors.product_price }}</p>
                 </label>
             </div>
             <div class="input-container" >
                 <label>Category</label>
-                <div class="category">
-                    <div class="category" v-for="category in categories" :key="category.id">
-                        <label>
-                            {{ category.name}}
-                            <input v-model="form.category" type="radio" name="category" id="category" :value="category.id">
-                        </label>
-                    </div>
-                </div>
+                <select v-model="form.category" id="category" name="category">
+                    <option value="">Select Category</option>
+                    <option v-for="category in categories" :key="category.id" :value="category.id" name="category">
+                    {{ category.name }}
+                    </option>
+                </select>
+                <p class="error" v-if="errors.category" >{{ errors.category }}</p>
             </div>
 
             <div class="flex between">
@@ -67,7 +69,7 @@
                     product_name: this.product.name,
                     product_description: this.product.description,
                     product_price: this.product.price,
-                    // variation: this.product.variation
+                    category: this.product.category
                 },
             }
         },
@@ -79,13 +81,23 @@
 
             categories: {
                 type: Object,
-            }
+            },
+
+            errors: Object
+
         },
 
         methods: {
-            edit() {
-                this.$inertia.put(`/products/edit/${this.product.id}`, this.form);
+            async edit() {
+                const response = await this.$inertia.put(`/products/edit/${this.product.id}`, this.form);
+
+                if (response.errors) {
+                    this.errors = response.errors;
+                } else {
+                    this.$inertia.visit('/products');
+                }
             }
+
         }
     }
 

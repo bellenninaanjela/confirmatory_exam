@@ -6,19 +6,21 @@
                 <label for="product_name">
                     Name of Product
                 <!-- validations -->
-                <input 
+                    <input 
                         type="text" 
                         v-model="form.product_name"
                         placeholder="Enter name of product" 
                         name="product_name" 
                         id="product_name"
                     >
+                    <p class="error" v-if="errors.product_name" >{{ errors.product_name }}</p>
                 </label>
             </div>
             <div class="input-container">
                 <label for="description">
                     Product Description
                     <textarea v-model="form.product_description" name="product_description" id="product_description"></textarea>
+                    <p class="error" v-if="errors.product_description" >{{ errors.product_description }}</p>
                 </label>
             </div>
             <div class="input-container">
@@ -30,16 +32,19 @@
                         placeholder="price" 
                         name="product_price"
                     >
+                    <p class="error" v-if="errors.product_price" >{{ errors.product_price }}</p>
+
                 </label>
             </div>
             <div class="input-container" >
-                <label>Category</label>
-                <div class="category" v-for="category in categories" :key="category.id">
-                    <label>
-                        {{ category.name }}
-                        <input v-model="form.category" type="radio" name="category" id="category" :value="category.id">
-                    </label>
-                </div>
+                <label for="category">Category:</label>
+                <select v-model="form.category" id="category" name="category">
+                    <option value="">Select Category</option>
+                    <option v-for="category in categories" :key="category.id" :value="category.id" name="category">
+                    {{ category.name }}
+                    </option>
+                </select>
+                <p class="error" v-if="errors.category" >{{ errors.category }}</p>
             </div>
 
             <button type="submit" class="add-product-button">Add Product</button>
@@ -48,31 +53,41 @@
 </template>
 
 <script>
+    import { useForm } from '@inertiajs/vue3'
     import useValidate from '@vuelidate/core'
     import { required } from '@vuelidate/validators'
 
     export default {
-        data() {
-            return {
-                form: {
-                    product_name: '',
-                    product_description: '',
-                    product_price: '',
-                    category: ''
-                },
-            }
+        setup() {
+            const form = useForm({
+                product_name: '',
+                product_description: '',
+                product_price: '',
+                category: ''
+            })
+
+            return { form }
         },
 
         props: {
             categories: {
                 type: Object,
-            }
+            },
+
+            errors: Object
         },
 
         methods: {
-            create() {
-                this.$inertia.post('/add-products', this.form);
+            async create() {
+                const response = await this.$inertia.post('/add-products', this.form);
+
+                if (response.errors) {
+                    this.errors = response.errors;
+                } else {
+                    this.$inertia.visit('/products');
+                }
             }
+
         }
     }
 
@@ -82,52 +97,55 @@
 <!-- 
 100%    1. Dynamic Categories 
             - components: 
-100%            home    - DONE
-100%            create, - DONE
-100%            edit    - DONE
+100%            home   
+100%            create,
+100%            edit   
 
-tr      2. Fetching records - if no data, display no data
+100%    2. Fetching records - if no data, display no data
 
-100%    3. Home: Dynamic Categories - DONE
-100%        - clickable categories  - DONE
+100%    3. Home: Dynamic Categories
+           - clickable categories 
 
-80%     4. Product count on categories (Home)   - 80%
+100%    4. Product count on categories (Home)  
 
--       5. Form validations (required)
+100%    5. Form validations (required)
 
-tr      6. Success message modal
+-       6. Success message modal
 
 -       7. Create/edit form components into one
 
-90%     8. Proper data types and input types
+100%    8. Proper data types and input types
 
-tr      9. Categories cms + image if no image: logo img
+-       9. Categories cms + image if no image: logo img
 
-100%    10. View Categories - DONE
+100%    10. View Categories
 
--       11. Use vue3
+10%     11. Confirmation
+            (only delete)
+
+-       12. Use vue3
         
         laravel:
--       1. migrations: softDelete() 
+20%     1. migrations: softDelete() 
 
-a       2. Name 'variation' convert to 'category'
+100%     2. Name 'variation' convert to 'category'
             -migrations:
-                -products
-                -variation
+100%            -products
+100%            -variation
             -model:
-                -product
-                -variation
-            -controller:
+100%            -product
+100%            -variation
+100%        -controller:
                 -ProductionController 
-                    -method
-                    -declaration
+100%                -method
+100%                -declaration
                 -VariationController
-                    -method
-                    -function
+100%                -method
+100%                -function
 
-100%    3. Category migration: add images   - DONE
+100%    3. Category migration: add images  
 
-a       4. Controller: refactor storing syntax
+60%     4. Controller: refactor storing syntax
 
 100%    5. Price data type: decimal
 

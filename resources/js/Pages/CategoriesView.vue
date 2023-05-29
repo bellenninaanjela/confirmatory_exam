@@ -13,6 +13,9 @@
                 <td>{{ product.description }}</td>
                 <td>{{ product.price }}</td>
             </tr>
+
+            <td colspan="5" v-if="products.length === 0" class="no-data">Currently no products</td>
+
         </tbody>
     </table>
 </template>
